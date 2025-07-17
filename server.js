@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+require('dotenv').config();
 const app = express();
 const PORT = process.env.PORT || 5000;
 const authRoutes = require('./routes/auth');
@@ -11,7 +12,7 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
-mongoose.connect('mongodb+srv://somalisisichannel:EWqhMS8TsIZEwK8v@ecommerce.xujifmk.mongodb.net/?retryWrites=true&w=majority&appName=ecommerce', {
+mongoose.connect(process.env.MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
